@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta chartset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <button id="boton">Boton Consultar Api</button>
+        <img id="imagen">
+        
+        <script>
+            document.getElementById('boton').addEventListener('click',function() {
+            let data= await hacerPeticion();
+            console.log(data);
+            document.getElementById("imagen").src=dato.url
+             });
+
+             async function hacerPeticion() {
+                let respuesta = await fetch("https://api.waifu.pics/sfw/waifu");
+                let datojson = await respuesta.json();
+                return datojson;
+            }
+        </script>
+    </body>
+</html>
