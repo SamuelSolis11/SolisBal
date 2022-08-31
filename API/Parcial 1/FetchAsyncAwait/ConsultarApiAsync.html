@@ -3,23 +3,23 @@
     <head>
         <meta chartset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Document</title>
+        <title>Samuel solis 19100257</title>
     </head>
     <body>
         <button id="boton">Boton Consultar Api</button>
         <img id="imagen">
         
         <script>
-            document.getElementById('boton').addEventListener('click',function() {
+            document.getElementById('boton').addEventListener('click',async function() {
             let data= await hacerPeticion();
             console.log(data);
-            document.getElementById("imagen").src=dato.url
+            document.getElementById('imagen').src=data.url
              });
 
              async function hacerPeticion() {
                 let respuesta = await fetch("https://api.waifu.pics/sfw/waifu");
                 let datojson = await respuesta.json();
-                return datojson;
+                return datojson
             }
         </script>
     </body>
