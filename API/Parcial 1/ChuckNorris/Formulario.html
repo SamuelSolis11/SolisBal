@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta chartset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <label for="nombre">Nombre</label>
+        <input id="nombre" type="text"><br>
+
+        <label for="apellido">Apellido</label>
+        <input id="apellido" type="text"><br>
+
+        <textarea name="broma" id="broma" cols="30" rows="10"></textarea>
+        <button id="boton">Broma</button>
+
+        <script>
+
+            document.getElementById('boton').addEventListener('click', async function() {
+            var nombre = document.getElementById('nombre').value;
+            var apellido = document.getElementById('apellido').value;
+
+            console.log(nombre);
+            console.log(apellido);
+            let dato = await hacerPeticion();
+            console.log(dato);
+            
+            document.getElementById('broma').value=dato.value.joke
+             }); 
+
+                async function hacerPeticion() {
+                let respuesta = await fetch(`http://api.icndb.com/jokes/random?firstName=${nombre.value}&lastName=${apellido.value}`)
+                let datojson = await respuesta.json();
+                return datojson;
+            }
+        </script>
+    </body>
+</html>
