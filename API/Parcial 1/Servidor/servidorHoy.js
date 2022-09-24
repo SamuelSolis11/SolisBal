@@ -1,10 +1,27 @@
 const express =require('express')
+var fs = require('fs')
+var morgan = require('morgan')
+var path = require('path')
 const cors = require('cors')
 
 const app=express()
 app.use(cors({ origin:"http://localhost"}))
 app.use(express.text())
 app.use(express.json())
+
+// create a write stream (in append mode)
+var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
+ 
+// setup the logger
+app.use(morgan('combined', { stream: accessLogStream }))
+
+//app.use((req,res,next)=>{ 
+   // console.log("Esta es una funcion middleware")
+   // next()
+//},(req,res,next)=>{ 
+  //  console.log("Esta es una segunda funcion middleware")
+   // next()
+//})
 
 app.get('/', (req,res) => {
     //res.send('Servidor Express contestando a get desde pto 8082 ')
