@@ -3,6 +3,7 @@ var fs = require('fs')
 var morgan = require('morgan')
 var path = require('path')
 const cors = require('cors')
+const cadenas = require('./modulos')
 
 const app=express()
 app.use(cors({ origin:"http://localhost"}))
@@ -31,12 +32,11 @@ app.get('/', (req,res) => {
 app.post('/texto', (req,res) => {
    // res.send('Servidor Express contestando a post desde pto 8082 ')
    console.log(req.body)
-   let may = req.body.toUpperCase()
-   let sinesp=req.body.trim()
-   let longi=req.body.length
-   res.json({mayuscula: may,
-sinespacios: sinesp,
-longitd: longi})
+   let may =cadenas.pasarMayusculas(req.body)
+   let sinesp=cadenas.quitarEspacios(req.body)
+   let longi = cadenas.obtenerLongitud(req.body)
+
+   res.json({mayusculas: may,sinespacios: sinesp,longitud: longi})
 }) 
 
 
