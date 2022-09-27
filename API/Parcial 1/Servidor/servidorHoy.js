@@ -16,13 +16,13 @@ var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {
 // setup the logger
 app.use(morgan('combined', { stream: accessLogStream }))
 
-//app.use((req,res,next)=>{ 
-   // console.log("Esta es una funcion middleware")
-   // next()
-//},(req,res,next)=>{ 
-  //  console.log("Esta es una segunda funcion middleware")
-   // next()
-//})
+app.use((req,res,next)=>{ 
+    console.log("Esta es una funcion middleware")
+    next()
+},(req,res,next)=>{ 
+    console.log("Esta es una segunda funcion middleware")
+    next()
+})
 
 app.get('/', (req,res) => {
     //res.send('Servidor Express contestando a get desde pto 8082 ')
