@@ -12,24 +12,30 @@
     <button id="btn">Mayusculas</button>
     <button id="btn2">espacios</button><br>
 
+    <br><label for="resultado">Resultado</label>
     <br><input id="resultado" type="text">
 
 
     <script type="module">
         //import{pasarmayusculas,quitarespacios} from './modulo.js'
 
-        import * as funciones from './modulo.js'
+        //import * as funciones from './modulo.js'
 
         document.getElementById("btn").addEventListener("click",function(){
-          let cad=document.getElementById("cadena").value;
-          let cadmay=funciones.pasarMayusculas(cad);
+
+        import('./modulo.js')
+        .then(function(modulo){ 
+          let cadmay=modulo.pasarMayusculas(document.getElementById("cadena").value);
           document.getElementById("resultado").value=cadmay
         })
+      })
 
           document.getElementById('btn2').addEventListener("click",function(){
-          let cad=document.getElementById('cadena').value;
-          let cadsines=funciones.quitarEspacios(cad);
+            import('./modulo.js')
+        .then(function(modulo){
+          let cadsines=modulo.quitarEspacios(document.getElementById('cadena').value);
           document.getElementById("resultado").value=cadsines
+          })
           })
            
         
