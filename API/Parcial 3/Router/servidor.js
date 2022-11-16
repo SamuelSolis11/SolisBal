@@ -9,7 +9,7 @@ app.use(express.json())
 app.use(express.text())
 app.use(cors({ origin:"http://localhost"}))
 
-app.use('/Jugador',ruta_jugador.router);
+app.use('/MostrarJugadores',ruta_jugador.router);
 app.use('/MostrarJugador/',ruta_jugador.router);
 app.use('/AgregarJugador',ruta_jugador.router);
 app.use('/actualizarJugador/',ruta_jugador.router);
