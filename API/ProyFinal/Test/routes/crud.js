@@ -66,7 +66,7 @@ router.get('/',(req,res)=>{
    *     description: Agregar jugadores a la lista.
    *     responses:
    *       200:
-   *         description: Ingresa datos al servidor .
+   *         description:   Mensaje confirmado que se agrego el Jugador correctamente .
    */
   router.post('/', (req, res) => {
     console.log(req.query);

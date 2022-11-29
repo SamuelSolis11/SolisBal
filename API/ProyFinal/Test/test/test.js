@@ -8,7 +8,7 @@ describe('Inserta un jugador: ',()=>{
     it('deberia insertar un jugador', (done) => {       
         chai.request(url)   
         .post('/AgregarJugador')
-        .send({ nombre:"Samuel", Posicion:"Porterp",sueldo:2500 })
+        .send({ Nombre:"Samuel", Posicion:"Porterp",sueldo:2500 })
         .end( function(err,res){
             expect(res).to.have.status(200);        
             expect(res.text).to.be.a('string');      
