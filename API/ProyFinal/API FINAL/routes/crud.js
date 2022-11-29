@@ -26,7 +26,7 @@ console.log('mysql conectado')
    *     description: Muestra la lista de los jugadores.
    *     responses:
    *       200:
-   *         description: Retorna los objetos .
+   *         description: Retorna toda la lista de los  jugadores de futbol .
    */
 router.get('/',(req,res)=>{
     let sql='SELECT * FROM jugador';
