@@ -9,7 +9,7 @@ chai.use(chaiHttp);const url= 'http://localhost:8081';
 describe('Inserta un jugador: ',()=>{     
     it('deberia insertar un jugador', (done) => {       
         chai.request(url) 
-        .post('/AgregarJugador?Nombre=Gabriel Gonzales&Posicion=DFC &Sueldo=3500.0')
+        .post('/AgregarJugador?Nombre=Emiliano Morenos&Posicion=MC Derecho &Sueldo=55500.0')
         .end((err, res) => {
             expect(res).to.have.status(200);  
             done()
@@ -33,10 +33,10 @@ describe('Obtiene todos los jugadores: ',()=>{
 });
 
 //Test que trae un id en especifico
-describe('obtener el jugador con el id 1: ',()=>{
-    it('Se obtiene el jugador con el id 1', (done) => {
+describe('Obtener el jugador con el id 5: ',()=>{
+    it('Se obtiene el jugador con el id 5', (done) => {
     chai.request(url)
-    .get('/MostrarJugador/1')
+    .get('/MostrarJugador/5')
     .end( function(err,res){
     //console.log(res.body)
     expect(res.body)
@@ -48,8 +48,8 @@ describe('obtener el jugador con el id 1: ',()=>{
    });
 
    //Test que elimina el ID que tu pongas 
-   describe('Elimina el id 3: ',()=>{
-    it('Debe eliminar el  id  3', (done) => {
+   describe('Elimina el id 5: ',()=>{
+    it('Debe eliminar el  id  5', (done) => {
     chai.request(url)
     .get('/MostrarJugadores')
     .end( function(err,res){
@@ -57,7 +57,7 @@ describe('obtener el jugador con el id 1: ',()=>{
     //expect(res.body).to.have.lengthOf(2);
     expect(res).to.have.status(200);
     chai.request(url)
-    .del('/borrarJugador/3')
+    .del('/borrarJugador/5')
     .end( function(err,res){
     //console.log(res.body)
     expect(res).to.have.status(200);
@@ -79,7 +79,7 @@ describe('obtener el jugador con el id 1: ',()=>{
 describe('Actualiza el ID que pongas: ',()=>{
     it('Deberia de actualizar el id', (done) => {
     chai.request(url)
-    .put('/actualizarJugador/6?Nombre=Jona Dos&Posicion=Medio derecho&Sueldo=1990.5')
+    .put('/actualizarJugador/6?Nombre=Juan Dos&Posicion=Medio derecho&Sueldo=2000.5')
     .end( function(err,res){
     //expect(res.body).to.have.property('days').to.be.equal(20);
     expect(res).to.have.status(200);
