@@ -38,15 +38,15 @@ router.get('/',(req,res)=>{
 
   /**
   * @swagger
-   * /MostrarJugador:
+   * /MostrarJugador/{ID_Jugador}:
    *   get:
    *     description: Muestra el jugador dependiendo el ID que ingreses.
    *     parameters:
-   *       - ID_Jugador: ID_Jugador
-   *         in: query
+   *       - name: ID_Jugador
+   *         in: path
    *         description: 'Buscar por ID el jugador que deseas buscar'
    *         schema:
-   *           type: string
+   *           type: integer
    *     responses:
    *       200:
    *         description: Retorna el objetos .
@@ -61,9 +61,25 @@ router.get('/',(req,res)=>{
   
   /**
   * @swagger
-   * /AgregarJugadores:
+   * /AgregarJugador:
    *   post:
    *     description: Agregar jugadores a la lista.
+   *     parameters:
+   *       - name: Nombre
+   *         in: query
+   *         description: 'Actualiza el nombre'
+   *         schema:
+   *           type: string
+   *       - name: Posicion
+   *         in: query
+   *         description: 'Actualiza la posicion'
+   *         schema:
+   *           type: string
+   *       - name: Sueldo
+   *         in: query
+   *         description: 'Actualiza el sueldo'
+   *         schema:
+   *           type: float 
    *     responses:
    *       200:
    *         description:   Mensaje confirmado que se agrego el Jugador correctamente .
@@ -87,15 +103,30 @@ router.get('/',(req,res)=>{
   
   /**
   * @swagger
-   * /actualizarJugador:
+   * /actualizarJugador/{ID_Jugador}:
    *   put:
    *     description: Actualiza el jugador dependiendo el ID que ingreses.
    *     parameters:
-   *       - ID_Jugador: ID_Jugador
-   *         in: query
-   *         description: 'Actualiza los datos del jugador que quieras por medio del ID'
+   *       - name: ID_Jugador
+   *         in: path
+   *         description: 'Se toma el id para poder modificar'
    *         schema:
    *           type: string
+   *       - name: Nombre
+   *         in: query
+   *         description: 'Actualiza el nombre'
+   *         schema:
+   *           type: string
+   *       - name: Posicion
+   *         in: query
+   *         description: 'Actualiza la posicion'
+   *         schema:
+   *           type: string
+   *       - name: Sueldo
+   *         in: query
+   *         description: 'Actualiza el sueldo'
+   *         schema:
+   *           type: float
    *     responses:
    *       200:
    *         description: Retorna el objetos .
@@ -120,15 +151,15 @@ router.get('/',(req,res)=>{
   
   /**
   * @swagger
-   * /borrarJugador:
+   * /borrarJugador/{ID_Jugador}:
    *   delete:
    *     description: Elimina el jugador dependiendo el ID que ingreses.
    *     parameters:
-   *       - ID_Jugador: ID_Jugador
-   *         in: query
+   *       - name: ID_Jugador
+   *         in: path
    *         description: 'Elimina por ID el jugador que deseas eliminar'
    *         schema:
-   *           type: string
+   *           type: integer
    *     responses:
    *       200:
    *         description: Elimina el objeto.
